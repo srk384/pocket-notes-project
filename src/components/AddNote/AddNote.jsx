@@ -3,7 +3,7 @@ import { useNotesContext } from "../../Context/NotesContext";
 import { useState } from "react";
 import { useMobileViewContext } from "../../Context/MobileViewContext";
 
-const Addnote = () => {
+const AddNote = () => {
   const { notes, setNotes, openNote, setOpenNote } = useNotesContext();
   const { isMobileView, setView } = useMobileViewContext();
   
@@ -116,4 +116,4 @@ const Addnote = () => {
   );
 };
 
-export default Addnote;
+export default AddNote;
