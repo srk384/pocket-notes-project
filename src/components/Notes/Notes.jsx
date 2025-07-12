@@ -1,4 +1,4 @@
-import Addnote from "../AddNote/Addnote";
+import Addnote from "../AddNote/Addnote.jsx";
 import LoadScreen from "../LoadScreen/LoadScreen";
 import "./NotesStyle.css";
 import { useNotesContext } from "../../Context/NotesContext";
