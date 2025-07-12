@@ -1,0 +1,11 @@
+.containerRight {
+  width: 70%;
+  min-height: 100dvh;
+  background-color: #dae5f5;
+}
+@media (width < 768px) {
+  .containerRight {
+    width: 100%;
+  }
+}
+
