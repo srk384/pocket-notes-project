@@ -23,6 +23,10 @@
 }
 
 .noteslist {
+  & .noNote {
+    text-align: center;
+    color: rgb(114, 113, 113);
+  }
   width: 100%;
   height: calc(100% - 113px);
   overflow-y: auto;

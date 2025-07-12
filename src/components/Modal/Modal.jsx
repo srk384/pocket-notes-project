@@ -2,6 +2,7 @@ import "./ModalStyles.css";
 import { useModalContext } from "../../Context/ModalContext";
 import { useState } from "react";
 import { useNotesContext } from "../../Context/NotesContext";
+import { ToastContainer, toast } from "react-toastify";
 
 const Modal = () => {
   const { openModal, setOpenModal } = useModalContext();
@@ -10,6 +11,7 @@ const Modal = () => {
   const [error, setError] = useState({
     group: false,
     color: false,
+    duplicate: false,
   });
   const [pickColor, setPickColor] = useState("");
   const [groupName, setGroupName] = useState("");
@@ -23,17 +25,26 @@ const Modal = () => {
     "#6691FF",
   ];
 
+  const notify = () => toast("Group Added Successfully!");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const isDuplicate = notes.some(
+      (note) => note.groupName?.toLowerCase() === groupName.toLowerCase()
+    );
 
     if (groupName.length < 3 && !pickColor) {
       setError({ group: true, color: true });
       return;
     } else if (groupName.length < 3) {
-      setError({ group: true, color: false });
+      setError({ group: true, color: false, duplicate: false });
       return;
     } else if (!pickColor) {
-      setError({ group: false, color: true });
+      setError({ group: false, color: true, duplicate: false });
+      return;
+    } else if (isDuplicate) {
+      setError({ group: false, color: false, duplicate: true });
       return;
     }
 
@@ -43,18 +54,20 @@ const Modal = () => {
         groupName: groupName,
         color: pickColor,
         id: crypto.randomUUID(),
-        notelist:[]
+        notelist: [],
       },
     ]);
 
-   
     setError({
       group: false,
       color: false,
+      duplicate: false,
     });
 
-    setOpenModal(false)
+    setOpenModal(false);
+    notify();
   };
+
   return (
     <div
       className="modalBody"
@@ -127,6 +140,11 @@ const Modal = () => {
           </div>
           {error.color && (
             <div className="displayError">Please select a color.</div>
+          )}
+          {error.duplicate && (
+            <div className="displayError">
+              Please enter a unique group name.
+            </div>
           )}
           <input type="submit" value="Create" />
         </form>

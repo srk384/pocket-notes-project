@@ -4,6 +4,7 @@ import Modal from "./components/Modal/Modal";
 import Notes from "./components/Notes/Notes";
 import { useModalContext } from "./Context/ModalContext";
 import { useMobileViewContext } from "./Context/MobileViewContext";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const { openModal } = useModalContext();
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="body">
+      <ToastContainer />
       {(view === "list" || !isMobileView) && <List />}
       {(view === "notes" || !isMobileView) && <Notes />}
       {openModal && <Modal />}

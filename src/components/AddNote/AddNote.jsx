@@ -6,7 +6,7 @@ import { useMobileViewContext } from "../../Context/MobileViewContext";
 const AddNote = () => {
   const { notes, setNotes, openNote, setOpenNote } = useNotesContext();
   const { isMobileView, setView } = useMobileViewContext();
-  
+
   const [noteText, setNoteText] = useState("");
 
   const handleNoteChange = (e) => {
@@ -59,7 +59,8 @@ const AddNote = () => {
           {openNote.groupName
             ?.split(" ")
             .map((word) => word[0].toUpperCase())
-            .join("")}
+            .join("")
+            .slice(0, 2)}
         </div>
         <div>{openNote.groupName}</div>
       </nav>
