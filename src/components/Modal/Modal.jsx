@@ -1,5 +1,5 @@
 import "./ModalStyles.css";
-import { useModalContext } from "../../Context/modalContext";
+import { useModalContext } from "../../Context/ModalContext";
 import { useState } from "react";
 import { useNotesContext } from "../../Context/NotesContext";
 

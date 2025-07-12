@@ -1,5 +1,5 @@
 import "./ListStyle.css";
-import { useModalContext } from "../../Context/modalContext";
+import { useModalContext } from "../../Context/ModalContext";
 import { useNotesContext } from "../../Context/NotesContext";
 import { useMobileViewContext } from "../../Context/MobileViewContext";
 
