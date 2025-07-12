@@ -65,6 +65,8 @@
     }
   }
   .noteslist {
+      height: calc(100% - 78px);
+
     & .noteTitle {
       gap: 20px;
       padding: 10px;
