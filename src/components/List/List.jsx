@@ -5,7 +5,7 @@ import { useMobileViewContext } from "../../Context/MobileViewContext";
 import { useState } from "react";
 const List = () => {
   const { setOpenModal } = useModalContext();
-  const { notes, openNote, setOpenNote } = useNotesContext();
+  const { notes, setOpenNote } = useNotesContext();
   const { setView } = useMobileViewContext();
   const [activeNote, setActiveNote] = useState(null);
 
@@ -15,7 +15,7 @@ const List = () => {
         <h1
           onClick={() => {
             setOpenNote(false);
-            setActiveNote(null)
+            setActiveNote(null);
           }}
         >
           Pocket Notes
